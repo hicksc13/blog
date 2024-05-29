@@ -32,16 +32,6 @@ main {
     margin: 20px;
     font-size: 1.2em;
 }
-aside {
-    float: left;
-    width: 25%;
-    padding: 10px;
-}
-section {
-    float: right;
-    width: 70%;
-    padding: 10px;
-}
 .post {
     border-bottom: 1px solid #333333;
     padding-bottom: 20px;
@@ -65,4 +55,22 @@ footer {
 }
 footer p {
     margin: 0;
+}
+section {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
+}
+section h2 {
+    color: #ff9800;
+}
+aside {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+section {
+    float: right;
+    width: 70%;
+    padding: 10px;
 }
