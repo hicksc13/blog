@@ -11,6 +11,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
         header {
             background-color: #1f1f1f;
@@ -19,6 +20,7 @@
         }
         header h1 {
             margin: 0;
+            font-size: 2.5em;
         }
         nav {
             margin: 20px;
@@ -28,12 +30,14 @@
             color: #ffffff;
             text-decoration: none;
             margin: 0 15px;
+            font-size: 1.2em;
         }
         nav a:hover {
             text-decoration: underline;
         }
         main {
             margin: 20px;
+            font-size: 1.2em;
         }
         .post {
             border-bottom: 1px solid #333333;
@@ -42,6 +46,7 @@
         }
         .post h2 {
             color: #ffffff;
+            font-size: 2em;
         }
         .post p {
             color: #cccccc;
@@ -53,6 +58,7 @@
             position: fixed;
             width: 100%;
             bottom: 0;
+            font-size: 0.9em;
         }
         footer p {
             margin: 0;
@@ -90,9 +96,17 @@
     <script>
         function loadPost(id, file) {
             fetch(file)
-                .then(response => response.text())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.text();
+                })
                 .then(data => {
                     document.getElementById(id).innerHTML = data;
+                })
+                .catch(error => {
+                    document.getElementById(id).innerHTML = '<p>Error loading post: ' + error.message + '</p>';
                 });
         }
 
