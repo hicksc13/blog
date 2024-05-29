@@ -71,18 +71,13 @@
     <main>
         <section id="about">
             <h2>About Me</h2>
-            <p>Welcome to my personal blog! Here, I share my thoughts and experiences. Stay tuned for updates.</p>
+            <p>Welcome to my personal blog! I'm Cody, and I'm excited to share my thoughts and experiences in data engineering and PowerBI administration. Stay tuned for updates.</p>
         </section>
         <section id="blog">
             <h2>Blog</h2>
-            <div class="post">
-                <h3>Post Title 1</h3>
-                <p>Post content goes here...</p>
-            </div>
-            <div class="post">
-                <h3>Post Title 2</h3>
-                <p>Post content goes here...</p>
-            </div>
+            <div class="post" id="post1"></div>
+            <div class="post" id="post2"></div>
+            <!-- Add new posts here using the blueprint -->
         </section>
         <section id="contact">
             <h2>Contact</h2>
@@ -92,5 +87,17 @@
     <footer>
         <p>&copy; 2024 My Personal Blog. All rights reserved.</p>
     </footer>
+    <script>
+        function loadPost(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                });
+        }
+
+        loadPost('post1', 'post1.html');
+        loadPost('post2', 'post2.html');
+    </script>
 </body>
 </html>
