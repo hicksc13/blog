@@ -4,94 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Blog</title>
-<<<<<<< HEAD
     <link rel="stylesheet" href="styles.css">
-=======
-    <style>
-        body {
-            background-color: #121212;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        header {
-            background-color: #1f1f1f;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        nav {
-            margin: 20px;
-            text-align: center;
-        }
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2em;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            margin: 20px;
-            font-size: 1.2em;
-        }
-        .post {
-            border-bottom: 1px solid #333333;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-        }
-        .post h2 {
-            color: #ffffff;
-            font-size: 2em;
-        }
-        .post p {
-            color: #cccccc;
-        }
-        footer {
-            background-color: #1f1f1f;
-            padding: 10px;
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            font-size: 0.9em;
-        }
-        footer p {
-            margin: 0;
-        }
-        .section {
-            display: none;
-        }
-        .section.active {
-            display: block;
-        }
-    </style>
->>>>>>> 04c37fcd2ee7fe226549fe16825064523f0a5941
 </head>
 <body>
     <header>
         <h1>My Personal Blog</h1>
     </header>
     <nav>
-<<<<<<< HEAD
         <a href="about.html">About Me</a>
         <a href="blog.html">Blog</a>
         <a href="contact.html">Contact</a>
-=======
-        <a href="#about" onclick="showSection('about')">About Me</a>
-        <a href="#blog" onclick="showSection('blog')">Blog</a>
-        <a href="#contact" onclick="showSection('contact')">Contact</a>
->>>>>>> 04c37fcd2ee7fe226549fe16825064523f0a5941
     </nav>
     <main>
-<<<<<<< HEAD
         <aside>
             <h2>Recent Posts</h2>
             <ul>
@@ -103,59 +27,10 @@
         <section>
             <h2>Welcome to My Blog!</h2>
             <p>I'm Cody, and I'm excited to share my thoughts and experiences in data engineering and PowerBI administration. Stay tuned for updates.</p>
-=======
-        <section id="about" class="section active">
-            <h2>About Me</h2>
-            <p>Welcome to my personal blog! I'm Cody, and I'm excited to share my thoughts and experiences in data engineering and PowerBI administration. Stay tuned for updates.</p>
->>>>>>> 04c37fcd2ee7fe226549fe16825064523f0a5941
         </section>
-<<<<<<< HEAD
-=======
-        <section id="blog" class="section">
-            <h2>Blog</h2>
-            <div class="post" id="post1"></div>
-            <div class="post" id="post2"></div>
-            <!-- Add new posts here using the blueprint -->
-        </section>
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <p>You can reach me at: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-        </section>
->>>>>>> 04c37fcd2ee7fe226549fe16825064523f0a5941
     </main>
     <footer>
         <p>&copy; 2024 My Personal Blog. All rights reserved.</p>
     </footer>
-<<<<<<< HEAD
-=======
-    <script>
-        function showSection(id) {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(id).classList.add('active');
-        }
-
-        function loadPost(id, file) {
-            fetch(file)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById(id).innerHTML = data;
-                })
-                .catch(error => {
-                    document.getElementById(id).innerHTML = '<p>Error loading post: ' + error.message + '</p>';
-                });
-        }
-
-        loadPost('post1', 'post1.html');
-        loadPost('post2', 'post2.html');
-    </script>
->>>>>>> 04c37fcd2ee7fe226549fe16825064523f0a5941
 </body>
 </html>
