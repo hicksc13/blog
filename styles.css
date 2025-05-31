@@ -67,10 +67,10 @@ section h2 {
 aside {
     float: left;
     width: 25%;
-    padding: 10px;
+    padding: 20px;
 }
 section {
     float: right;
     width: 70%;
-    padding: 10px;
+    padding: 20px;
 }
