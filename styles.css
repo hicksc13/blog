@@ -1,254 +1,607 @@
-/*-- -------------------------- -->
-<---            Blog            -->
-<--- -------------------------- -*/
+/*==========================================
+  styles.css
+  A versatile, well-commented CSS stylesheet
+  suitable as a starting point for most projects
+===========================================*/
 
-/* Mobile - 360px */
-@media only screen and (min-width: 0rem) {
-    #blog-986 {
-        padding: var(--sectionPadding);
-        background-color: #1a1a1a;
-    }
-    #blog-986 .cs-container {
-        width: 100%;
-        /* changes to 1280px at desktop */
-        max-width: 36.5rem;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* 48px - 64px */
-        gap: clamp(3rem, 6vw, 4rem);
-    }
-    #blog-986 .cs-content {
-        /* set text align to left if content needs to be left aligned */
-        text-align: center;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        /* centers content horizontally, set to flex-start to left align */
-        align-items: center;
-    }
+/*------------------------------------------
+  1. RESET & BOX-SIZING
+-------------------------------------------*/
+/* Apply a simple reset to remove default margins/padding */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Include padding and border in element’s total width/height */
+}
 
-    #blog-986 .cs-title {
-        margin-bottom: 2rem;
-        max-width: 20ch;
-        color: var(--bodyTextColorWhite);
-    }
-    #blog-986 .cs-button-solid {
-        font-size: 1rem;
-        /* 46px - 56px */
-        line-height: clamp(2.875em, 5.5vw, 3.5em);
-        text-decoration: none;
-        font-weight: 700;
-        text-align: center;
-        margin: 0;
-        color: #fff;
-        min-width: 9.375rem;
-        padding: 0 2rem;
-        background-color: var(--primary);
-        display: inline-block;
-        position: relative;
-        z-index: 1;
-        /* prevents padding from adding to the width */
-        box-sizing: border-box;
-    }
-    #blog-986 .cs-button-solid:before {
-        content: "";
-        position: absolute;
-        height: 100%;
-        width: 0%;
-        background: #000;
-        opacity: 1;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition: width 0.3s;
-    }
-    #blog-986 .cs-button-solid:hover:before {
-        width: 100%;
-    }
-    #blog-986 .cs-button-solid {
-        /* prevents flexbox from squishing it */
-        flex: none;
-    }
-    #blog-986 .cs-card-group {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        /* 16px - 20px */
-        gap: clamp(1rem, 2vw, 1.25rem);
-        position: relative;
-    }
-    #blog-986 .cs-item {
-        list-style: none;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        position: relative;
-    }
-    #blog-986 .cs-item:hover {
-        cursor: pointer;
-    }
-    #blog-986 .cs-item:hover .cs-info:before {
-        opacity: 1;
-        background-color: var(--primary);
-    }
-    #blog-986 .cs-item:hover .cs-picture img {
-        transform: scale(1.15);
-    }
-    #blog-986 .cs-item:hover .cs-date {
-        color: #fff;
-    }
-    #blog-986 .cs-item:hover .cs-icon {
-        filter: brightness(150%);
-    }
-    #blog-986 .cs-item:hover .cs-link {
-        color: #fff;
-    }
-    #blog-986 .cs-picture {
-        width: 100%;
-        height: 30rem;
-        /* removed at tablet */
-        aspect-ratio: 0.68333333;
-        /* clips img tag from overflowing it on hover */
-        overflow: hidden;
-        display: block;
-        position: relative;
-        z-index: 1;
-    }
-    #blog-986 .cs-picture img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        /* makes sure the top of the image is at the top of the parent, heads won't get cut off this way */
-        object-position: top;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition: transform 0.9s;
-    }
-    #blog-986 .cs-info {
-        width: 83%;
-        max-width: 26.25rem;
-        /* 16px - 24px */
-        padding: clamp(1rem, 2vw, 1.5rem);
-        /* prevents padding from affecting the height and width */
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        z-index: 10;
-    }
-    #blog-986 .cs-info:before {
-        /* background-color */
-        content: "";
-        width: 100%;
-        height: 100%;
-        background: #1a1a1a;
-        opacity: 0.8;
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition:
-            background-color 0.3s,
-            opacity 0.3s;
-    }
-    #blog-986 .cs-date {
-        font-size: 1rem;
-        line-height: 1.2em;
-        font-weight: 700;
-        margin: 0 0 1.25rem 0;
-        color: #bababa;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 0.5rem;
-        transition: color 0.3s;
-    }
-    #blog-986 .cs-icon {
-        width: 1.25rem;
-        height: auto;
-        transition: filter 0.3s;
-    }
-    #blog-986 .cs-h3 {
-        font-size: 1.25rem;
-        line-height: 1.2em;
-        font-weight: 700;
-        margin: 0 0 0.75rem 0;
-        color: #fff;
-        display: block;
-    }
-    #blog-986 .cs-desc {
-        font-size: 1rem;
-        line-height: 1.5em;
-        margin: 0 0 1.25rem 0;
-        color: #f7f7f7;
-        display: block;
-    }
-    #blog-986 .cs-link {
-        font-size: 1rem;
-        line-height: 1.2em;
-        font-weight: 700;
-        text-decoration: none;
-        width: auto;
-        margin: 0;
-        color: var(--primary);
-        display: inline-block;
-        position: relative;
-        transition: color 0.3s;
-    }
-    #blog-986 .cs-link:hover {
-        color: #fff;
-    }
-    #blog-986 .cs-link:before {
-        /* underline */
-        content: "";
-        width: 100%;
-        height: 1px;
-        background: currentColor;
-        opacity: 1;
-        position: absolute;
-        display: block;
-        bottom: 0;
-        left: 0;
-        transition: background-color 0.3s;
-    }
+/* Remove default list styling */
+ul,
+ol {
+  list-style: none;
 }
-/* Tablet - 550px */
-@media only screen and (min-width: 34.375rem) {
-    #blog-986 .cs-content {
-        text-align: left;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end;
-        gap: 3rem;
-    }
-    #blog-986 .cs-title {
-        margin: 0;
-    }
-    #blog-986 .cs-picture {
-        /* remove the aspect ratio so the height can be squished */
-        aspect-ratio: initial;
-    }
+
+/* Remove link underlines by default; styled separately */
+a {
+  text-decoration: none;
+  color: inherit;
 }
-/* Small Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
-    #blog-986 .cs-container {
-        max-width: 80rem;
-    }
-    #blog-986 .cs-card-group {
-        flex-direction: row;
-    }
+
+/* Ensure images and media scale responsively */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
+
+/* Inherit fonts for form elements */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*------------------------------------------
+  2. ROOT & VARIABLES (CSS Custom Properties)
+-------------------------------------------*/
+:root {
+  /* Color Palette */
+  --color-primary:    #284563;   /* Dark blue-gray */
+  --color-secondary:  #ecf0f1;   /* Light gray */
+  --color-accent:     #e74c3c;   /* Red accent */
+  --color-text:       #000000;   /* Dark text */
+  --color-background: #e3e0e0;   /* White background */
+  --color-muted:      #7f8c8d;   /* Muted gray */
+
+  /* Typography */
+  --font-family-base:   'Helvetica Neue', Arial, sans-serif;
+  --font-size-base:     16px;
+  --line-height-base:   1.5;
+
+  /* Spacing Scale */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 3rem;      /* 48px */
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Utility Opacity */
+  --opacity-disabled: 0.6;
+}
+
+/*------------------------------------------
+  3. BASE TYPOGRAPHY
+-------------------------------------------*/
+html {
+  font-size: var(--font-size-base);
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: 1rem;              /* equals 16px */
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  min-height: 100vh;
+}
+
+/* Headings: Maintain consistent scale */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+h1 { font-size: 2.5rem; }    /* 40px */
+h2 { font-size: 2rem; }      /* 32px */
+h3 { font-size: 1.75rem; }   /* 28px */
+h4 { font-size: 1.5rem; }    /* 24px */
+h5 { font-size: 1.25rem; }   /* 20px */
+h6 { font-size: 1rem; }      /* 16px */
+
+p {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+}
+
+/* Paragraph-sized text that should be smaller/larger */
+.small-text {
+  font-size: 0.875rem;   /* 14px */
+}
+
+.large-text {
+  font-size: 1.125rem;   /* 18px */
+}
+
+/* Link styles */
+a {
+  color: var(--color-accent);
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-primary);
+  outline: none;
+}
+
+/*------------------------------------------
+  4. LAYOUT CONTAINERS & GRID
+-------------------------------------------*/
+/* Centered container with max-width for readability */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+}
+
+/* Simple 12-column grid system (flex-based) */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(var(--spacing-sm) * -1);
+  margin-right: calc(var(--spacing-sm) * -1);
+}
+
+.col {
+  flex: 1 0 0%;
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+}
+
+/* Column width utilities: .col-1 through .col-12 */
+/* Example: .col-6 takes up 50% width */
+[class*="col-"] {
+  flex: 0 0 auto;
+}
+.col-1  { width: 8.3333%; }
+.col-2  { width: 16.6667%; }
+.col-3  { width: 25%; }
+.col-4  { width: 33.3333%; }
+.col-5  { width: 41.6667%; }
+.col-6  { width: 50%; }
+.col-7  { width: 58.3333%; }
+.col-8  { width: 66.6667%; }
+.col-9  { width: 75%; }
+.col-10 { width: 83.3333%; }
+.col-11 { width: 91.6667%; }
+.col-12 { width: 100%; }
+
+/*------------------------------------------
+  5. RESPONSIVE BREAKPOINTS
+-------------------------------------------*/
+@media (max-width: 992px) {
+  /* Breakpoint for tablets */
+  .col-sm-12 { width: 100%; }
+  .col-sm-6  { width: 50%; }
+  /* (You can add more .col-sm-* as needed) */
+}
+
+@media (max-width: 768px) {
+  /* Breakpoint for small tablets / large phones */
+  .col-md-12 { width: 100%; }
+  .col-md-6  { width: 50%; }
+  /* (You can add more .col-md-* as needed) */
+}
+
+@media (max-width: 576px) {
+  /* Breakpoint for phones */
+  .col-xs-12 { width: 100%; }
+  .col-xs-6  { width: 50%; }
+  /* (You can add more .col-xs-* as needed) */
+
+  body {
+    font-size: 0.9375rem;  /* 15px for smaller screens */
+  }
+}
+
+/*------------------------------------------
+  6. NAVIGATION & HEADER
+-------------------------------------------*/
+header {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  padding: var(--spacing-md) 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.navbar .nav-links {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.navbar .nav-links a {
+  color: var(--color-secondary);
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.navbar .nav-links a:hover,
+.navbar .nav-links a:focus {
+  background-color: var(--color-accent);
+  border-radius: var(--radius-sm);
+}
+
+/*------------------------------------------
+  7. BUTTONS & FORMS
+-------------------------------------------*/
+/* Base button styles */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+/* Primary button */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--color-accent);
+}
+
+/* Secondary (outline) button */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+/* Disabled button state */
+.btn:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}
+
+/* Form elements */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid #ccc;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  margin-bottom: var(--spacing-md);
+  transition: border-color 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+/* Label styling */
+label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/*------------------------------------------
+  8. UTILITIES & HELPERS
+-------------------------------------------*/
+/* Text alignment */
+.text-left   { text-align: left; }
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+
+/* Display utilities */
+.d-block   { display: block !important; }
+.d-inline  { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-flex    { display: flex !important; }
+.d-grid    { display: grid !important; }
+
+/* Margin utilities (top) */
+.mt-0    { margin-top: 0 !important; }
+.mt-xs   { margin-top: var(--spacing-xs) !important; }
+.mt-sm   { margin-top: var(--spacing-sm) !important; }
+.mt-md   { margin-top: var(--spacing-md) !important; }
+.mt-lg   { margin-top: var(--spacing-lg) !important; }
+.mt-xl   { margin-top: var(--spacing-xl) !important; }
+
+/* Margin utilities (bottom) */
+.mb-0    { margin-bottom: 0 !important; }
+.mb-xs   { margin-bottom: var(--spacing-xs) !important; }
+.mb-sm   { margin-bottom: var(--spacing-sm) !important; }
+.mb-md   { margin-bottom: var(--spacing-md) !important; }
+.mb-lg   { margin-bottom: var(--spacing-lg) !important; }
+.mb-xl   { margin-bottom: var(--spacing-xl) !important; }
+
+/* Padding utilities (top) */
+.pt-0    { padding-top: 0 !important; }
+.pt-xs   { padding-top: var(--spacing-xs) !important; }
+.pt-sm   { padding-top: var(--spacing-sm) !important; }
+.pt-md   { padding-top: var(--spacing-md) !important; }
+.pt-lg   { padding-top: var(--spacing-lg) !important; }
+.pt-xl   { padding-top: var(--spacing-xl) !important; }
+
+/* Padding utilities (bottom) */
+.pb-0    { padding-bottom: 0 !important; }
+.pb-xs   { padding-bottom: var(--spacing-xs) !important; }
+.pb-sm   { padding-bottom: var(--spacing-sm) !important; }
+.pb-md   { padding-bottom: var(--spacing-md) !important; }
+.pb-lg   { padding-bottom: var(--spacing-lg) !important; }
+.pb-xl   { padding-bottom: var(--spacing-xl) !important; }
+
+/* Float utilities */
+.float-left  { float: left !important; }
+.float-right { float: right !important; }
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Hidden (accessible) */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/*------------------------------------------
+  9. CARDS & PANELS
+-------------------------------------------*/
+.card {
+  background-color: var(--color-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-4px);
+}
+
+.card-header {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  padding: var(--spacing-md);
+  font-weight: 600;
+}
+
+.card-body {
+  padding: var(--spacing-md);
+  color: var(--color-text);
+}
+
+.card-footer {
+  background-color: #f8f9fa;
+  padding: var(--spacing-sm);
+  text-align: right;
+}
+
+/*------------------------------------------
+  10. TABLE STYLES
+-------------------------------------------*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--spacing-lg);
+}
+
+thead {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+thead th {
+  padding: var(--spacing-sm);
+  text-align: left;
+  font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+tbody td {
+  padding: var(--spacing-sm);
+  border-top: 1px solid #e0e0e0;
+}
+
+/*------------------------------------------
+  11. ALERTS & MESSAGING
+-------------------------------------------*/
+.alert {
+  padding: var(--spacing-md);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.alert .close-btn {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+}
+
+/*------------------------------------------
+  12. FOOTER
+-------------------------------------------*/
+footer {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+  margin-top: var(--spacing-lg);
+}
+
+footer p {
+  font-size: 0.875rem;
+}
+
+/*------------------------------------------
+  13. OVERFLOW & MODALS
+-------------------------------------------*/
+/* Basic modal backdrop */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none; /* Toggle with .show */
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 500px;
+  background-color: var(--color-background);
+  border-radius: var(--radius-md);
+  transform: translate(-50%, -50%);
+  padding: var(--spacing-md);
+  z-index: 1000;
+  display: none; /* Toggle with .show */
+}
+
+.modal.show,
+.modal-backdrop.show {
+  display: block;
+}
+
+/*------------------------------------------
+  14. MISCELLANEOUS
+-------------------------------------------*/
+/* Horizontal rule */
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: var(--spacing-lg) 0;
+}
+
+/* Icon utility (e.g., using icon fonts or SVGs) */
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor; /* If using SVG icons */
+}
+
+/* Load spinner utility */
+.spinner {
+  border: 4px solid var(--color-secondary);
+  border-top: 4px solid var(--color-primary);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  animation: spin 1s linear infinite;
+  margin: var(--spacing-md) auto;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/*------------------------------------------
+  15. PRINT STYLES (Optional)
+-------------------------------------------*/
+@media print {
+  body {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+  }
+}
+
 
                                 
